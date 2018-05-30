@@ -1,0 +1,7 @@
+{
+  "name": "nodejs_brooklyn_sensor_test",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
