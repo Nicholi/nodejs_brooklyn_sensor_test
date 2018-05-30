@@ -1,0 +1,18 @@
+name: NodeJS_SensorTest
+services:
+- type: org.apache.brooklyn.entity.webapp.nodejs.NodeJsWebAppService
+  brooklyn.config:
+    nodejs.app.name: myapp
+    nodejs.gitRepo.url: https://github.com/Nicholi/nodejs_brooklyn_sensor_test.git
+    nodejs.app.commandLine: $brooklyn:formatString("node plain.js %s", $brooklyn:attributeWhenReady("host.address"))
+    http.port: 8080
+    nodejs.serviceUp.path: /health
+location:
+  jclouds:digitalocean2:
+    identity:  $brooklyn:external("digitalocean", "identity")
+    credential: $brooklyn:external("digitalocean", "credential")
+    hardwareId: s-1vcpu-1gb
+    imageId:    sfo1/ubuntu-16-04-x64
+    templateOptions:
+      privateNetworking: true
+      autoCreateKeyPair: true
