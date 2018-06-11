@@ -59,7 +59,7 @@ let webServer = http.createServer((req, res) => {
 
   if (urlObj.pathname === '/metrics/networkThroughput') {
     res.statusCode = 200;
-    res.end(`{"metric": ${throughputData.total_sec}}`);
+    res.end(`{"metric": ${Math.trunc(throughputData.total_sec)}}`);
     return;
   }
 
