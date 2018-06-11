@@ -53,13 +53,13 @@ let webServer = http.createServer((req, res) => {
 
   if (urlObj.pathname === '/metrics/requestCount') {
     res.statusCode = 200;
-    res.end(`{"metric": ${requestCount}`);
+    res.end(`{"metric": ${requestCount}}`);
     return;
   }
 
   if (urlObj.pathname === '/metrics/networkThroughput') {
     res.statusCode = 200;
-    res.end(`{"metric": ${throughputData.total_sec}`);
+    res.end(`{"metric": ${throughputData.total_sec}}`);
     return;
   }
 
